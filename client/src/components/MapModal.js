@@ -5,8 +5,7 @@ import mapboxgl from "mapbox-gl";
 import axios from "axios";
 
 // Set your Mapbox access token
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiamF5ZXNoMjgxMSIsImEiOiJjbHk1OWd6NnIwZDhvMmtyM2g4NGFpYWpxIn0.p_lt_HokDS9FPN41cNsgHQ";
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function MapModal({ show, onHide, address }) {
   useEffect(() => {

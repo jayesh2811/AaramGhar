@@ -145,7 +145,7 @@ function BookingScreen() {
                   token={onToken}
                   amount={room.rentPerDay * totalDays * 100}
                   currency="INR"
-                  stripeKey="pk_test_51Peu7mRtQzwbUFpFnAtfqkPXifPTDT7RKuWhSjgS2C57DLZyWzcJPCDweB1KZ3SeEsiGTzFngiUir3EhSEqYfKy600kA1dzZFe"
+                  stripeKey={process.env.REACT_APP_STRIPE_KEY}
                 >
                   <button className="btn btn-primary">Pay Now</button>
                 </StripeCheckout>

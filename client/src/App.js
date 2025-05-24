@@ -11,10 +11,9 @@ import LandingScreen from "./screens/LandingScreen";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-
-      <Router>
+    <Router>
+      <div className="App">
+        <Navbar />
         <Routes>
           <Route path="/home" element={<HomeScreen />} />
           <Route
@@ -27,8 +26,8 @@ function App() {
           <Route path="/admin" element={<AdminScreen />} />
           <Route path="/" element={<LandingScreen/>} />
         </Routes>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 
