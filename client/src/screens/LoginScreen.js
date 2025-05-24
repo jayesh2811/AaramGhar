@@ -4,12 +4,10 @@ import Loader from "../components/Loader";
 import Error from "../components/Error";
 
 function LoginScreen() {
-
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  
 
   async function Login() {
     const user = {
@@ -19,26 +17,27 @@ function LoginScreen() {
 
     try {
       setLoading(true);
-      const result = (await axios.post('/api/users/login', user)).data;
+      const API_URL = process.env.REACT_APP_API_URL;
+      const result = (await axios.post(`${API_URL}/api/users/login`, user))
+        .data;
       setLoading(false);
 
-      localStorage.setItem('currentUser', JSON.stringify(result));
+      localStorage.setItem("currentUser", JSON.stringify(result));
 
-      window.location.href = '/home';
+      window.location.href = "/home";
     } catch (error) {
       console.log(error);
       setLoading(false);
       setError(true);
     }
-    
   }
 
   return (
     <div>
-      {loading && (<Loader/>)}
+      {loading && <Loader />}
       <div className="row justify-content-center mt-5">
         <div className="col-md-5">
-        {error && (<Error message={"Invalid Credentials"}/>)}
+          {error && <Error message={"Invalid Credentials"} />}
           <div className="bs">
             <h2>Login</h2>
 

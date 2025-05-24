@@ -254,9 +254,11 @@ export function Addroom() {
       const result = (await axios.post("/api/rooms/addroom", newroom)).data;
       console.log(result);
       setLoading(false);
-      Swal.fire("Congrats", "New Room Added Successfully!", "success").then(result => {
-        window.location.href='/home';
-      });
+      Swal.fire("Congrats", "New Room Added Successfully!", "success").then(
+        (result) => {
+          window.location.href = "/home";
+        }
+      );
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -266,7 +268,7 @@ export function Addroom() {
 
   return (
     <div className="row">
-      {loading && (<Loader/>)}
+      {loading && <Loader />}
       <div className="col-md-5">
         <input
           type="text"
