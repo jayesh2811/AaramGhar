@@ -1,5 +1,13 @@
-const express = require('express');
+const express = require("express");
+const cors = require("cors"); // <-- ADD THIS
 const app = express();
+
+app.use(
+  cors({
+    origin: "https://aaramghar.onrender.com", // <-- your frontend URL
+    credentials: true,
+  })
+);
 
 const dbConfif = require("./db.js");
 const roomsRoute = require("./routes/roomsRoute.js");
@@ -13,5 +21,5 @@ app.use("/api/bookings", bookingRoute);
 
 const port = process.env.PORT || 5000;
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get("/", (req, res) => res.send("Hello World!"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
