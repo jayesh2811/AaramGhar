@@ -6,7 +6,7 @@ const app = express();
 // CORS configuration
 app.use(
   cors({
-    origin: ["https://aaramghar.onrender.com", "http://localhost:3000"],
+    origin: ["https://aaramghar.netlify.app", "http://localhost:3000"],
     credentials: true,
   })
 );
